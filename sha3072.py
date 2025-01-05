@@ -218,8 +218,8 @@ def hash_file(file_path):
 def main():
     if len(sys.argv) < 3:
         print("Usage:")
-        print("  sha3072 -p content")
-        print("  sha3072 file_path")
+        print("  python3 sha3072.py -p content")
+        print("  python3 sha3072.py file_path")
         sys.exit(1)
     option, value = sys.argv[1], sys.argv[2]
     if option == '-p':
