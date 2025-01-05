@@ -1,6 +1,8 @@
-# SHA-3072 Hash Tool
-
-A ridiculously secure hashing algorithm that takes forever to hash data.
+<div align="center">
+  <a href="#">
+    <img src="assets/banner.jpg" alt="Logo">
+  </a>
+</div>
 
 ## Table of Contents
 1. [Introduction](#introduction)
