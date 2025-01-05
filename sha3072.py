@@ -89,33 +89,25 @@ def hypernova_infinite_cipher(data):
     """
     HyperNova-Infinite Cipher Implementation for SHA-3072
     """
-    # --- implemented 16-layer SHA256 hashing to make this infinitely more secure ---
-    data = hashlib.sha256(data).digest()
-    data = hashlib.sha256(data).digest()
-    data = hashlib.sha256(data).digest()
-    data = hashlib.sha256(data).digest()
-    data = hashlib.sha256(data).digest()
-    data = hashlib.sha256(data).digest()
-    data = hashlib.sha256(data).digest()
-    data = hashlib.sha256(data).digest()
-    data = hashlib.sha256(data).digest()
-    data = hashlib.sha256(data).digest()
-    data = hashlib.sha256(data).digest()
-    data = hashlib.sha256(data).digest()
-    data = hashlib.sha256(data).digest()
-    data = hashlib.sha256(data).digest()
-    data = hashlib.sha256(data).digest()
-    data = hashlib.sha256(data).digest()
+    for _ in range(16):
+        data = hashlib.sha256(data).digest()
+        data = hashlib.sha512(data).digest()
+
+    data = hashlib.blake2b(data).digest()
+    data = hashlib.shake_256(data).digest(64)
+    data = hashlib.scrypt(data, salt=b"mysalt", n=2**14, r=8, p=1)
+    data = hashlib.pbkdf2_hmac("sha256", data, b"mysalt", 100000)
+    data = hashlib.sha3_512(data).digest()
 
     seed = int(hashlib.sha256(data).hexdigest(), 16)
     rng = Random(seed)
 
-    # 1. Initialize 8D matrix
     log("Initializing 8D matrix.")
     size = 8
     start_time = time.time()
-    matrix = [[[[[[[[rng.randint(0, 255) for _ in range(size)] for _ in range(size)]
-               for _ in range(size)] for _ in range(size)] for _ in range(size)] for _ in range(size)] for _ in range(size)] for _ in range(size)]
+    matrix = [[[[[[[[rng.randint(0, 255) for _ in range(size)] for _ in range(size)] 
+               for _ in range(size)] for _ in range(size)] for _ in range(size)] 
+               for _ in range(size)] for _ in range(size)] for _ in range(size)]
     elapsed = time.time() - start_time
     log(f"8D matrix initialization completed in {elapsed:.2f} seconds.")
 
@@ -229,9 +221,7 @@ def main():
         print("  sha3072 -p content")
         print("  sha3072 file_path")
         sys.exit(1)
-
     option, value = sys.argv[1], sys.argv[2]
-
     if option == '-p':
         print(hash_plaintext(value))
     else:
