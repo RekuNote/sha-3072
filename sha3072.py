@@ -89,9 +89,28 @@ def hypernova_infinite_cipher(data):
     """
     HyperNova-Infinite Cipher Implementation for SHA-3072
     """
+    # --- implemented 16-layer SHA256 hashing to make this infinitely more secure ---
+    data = hashlib.sha256(data).digest()
+    data = hashlib.sha256(data).digest()
+    data = hashlib.sha256(data).digest()
+    data = hashlib.sha256(data).digest()
+    data = hashlib.sha256(data).digest()
+    data = hashlib.sha256(data).digest()
+    data = hashlib.sha256(data).digest()
+    data = hashlib.sha256(data).digest()
+    data = hashlib.sha256(data).digest()
+    data = hashlib.sha256(data).digest()
+    data = hashlib.sha256(data).digest()
+    data = hashlib.sha256(data).digest()
+    data = hashlib.sha256(data).digest()
+    data = hashlib.sha256(data).digest()
+    data = hashlib.sha256(data).digest()
+    data = hashlib.sha256(data).digest()
+
     seed = int(hashlib.sha256(data).hexdigest(), 16)
     rng = Random(seed)
 
+    # 1. Initialize 8D matrix
     log("Initializing 8D matrix.")
     size = 8
     start_time = time.time()
@@ -220,4 +239,3 @@ def main():
 
 if __name__ == '__main__':
     main()
-
