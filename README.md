@@ -14,7 +14,7 @@
 7. [License](#license)
 
 ## Introduction
-**SHA-3072** is a ridiculously complicated hashing algorithm designed for extreme complexity and security.
+**sha-3072** is a ridiculously complicated hashing algorithm designed for extreme complexity and security.
 
 This tool goes beyond traditional hashing functions like SHA-256 by integrating multi-dimensional transformations, entropy analysis and sponge construction.
 
@@ -93,7 +93,7 @@ python3 sha3072.py [OPTIONS] <INPUT>
 
 ## How It Works
 
-SHA-3072 operates in multiple intricate stages, described below:
+sha-3072 operates in multiple intricate stages, described below:
 
 1. **8D Matrix Initialization**:
    - A pseudo-random 8-dimensional matrix is created, seeded deterministically by the input data. This ensures the matrix is consistent across identical inputs.
