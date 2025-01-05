@@ -1,6 +1,6 @@
 # SHA-3072 Hash Tool
 
-A stupidly over-engineered hashing algorithm.
+A ridiculously secure hashing algorithm that takes forever to hash data.
 
 ## Table of Contents
 1. [Introduction](#introduction)
@@ -37,55 +37,56 @@ This tool goes beyond traditional hashing functions like SHA-256 by integrating 
 
 2. Install dependencies:
    ```bash
-   pip install numpy
+   python3 -m pip install numpy
    ```
 
 3. Run the script:
    ```bash
-   python sha3072.py
+   python3 sha3072.py
    ```
 
 ## Usage
 The tool provides a simple interface with flexible arguments.
+> **Note:** This tool may take a long time to hash data depending on your specific hardware specification
 
 ### Syntax
 ```bash
-python sha3072.py [OPTIONS] <INPUT>
+python3 sha3072.py [OPTIONS] <INPUT>
 ```
 
 ### Arguments
 1. **Plaintext Input**:
    Hash a string directly by using the `-p` flag:
    ```bash
-   python sha3072.py -p "your input here"
+   python3 sha3072.py -p "your input here"
    ```
 
 2. **File Input**:
    Hash the contents of a file by providing its path:
    ```bash
-   python sha3072.py <file_path>
+   python3 sha3072.py <file_path>
    ```
 
 3. **Verbose Mode**:
    Add the `-v` flag to see detailed logs of the hashing process:
    ```bash
-   python sha3072.py -p "your input here" -v
+   python3 sha3072.py -p "your input here" -v
    ```
 
 ### Examples
 1. **Hash a String**:
    ```bash
-   python sha3072.py -p "hello world"
+   python3 sha3072.py -p "hello world"
    ```
 
 2. **Hash a File**:
    ```bash
-   python sha3072.py /path/to/file.txt
+   python3 sha3072.py /path/to/file.txt
    ```
 
 3. **Verbose Logging**:
    ```bash
-   python sha3072.py -p "verbose test" -v
+   python3 sha3072.py -p "verbose test" -v
    ```
 
 ## How It Works
