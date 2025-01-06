@@ -33,7 +33,7 @@ This tool goes beyond traditional hashing functions like SHA-256 by integrating 
 ## Installation
 1. Clone the repository:
    ```bash
-   git clone https://gitlab.com/RekuNote/sha-3072.git
+   git clone https://www.github.com/RekuNote/sha-3072.git
    cd sha-3072
    ```
 
